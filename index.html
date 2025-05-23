@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preloved Mahasiswa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Kaisei+Opti&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Kaisei Opti', serif;
+      background-color: #dedede;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #84aba8;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .top-options {
+      display: flex;
+      gap: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: white;
+    }
+
+    .search-cart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar {
+      padding: 4px 8px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .cart-icon {
+      font-size: 20px;
+    }
+
+    .main-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 60px;
+      align-items: center;
+    }
+
+    .text-section {
+      max-width: 50%;
+    }
+
+    .text-section h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      font-weight: normal;
+    }
+
+    .info-line {
+      font-size: 18px;
+      font-weight: normal;
+      color: #222;
+    }
+
+    .highlight-button {
+      display: inline-block;
+      background-color: #84aba8;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: 'Kaisei Opti', serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0 6px;
+    }
+
+    .image-section img {
+      max-width: 300px;
+      border-radius: 40px;
+    }
+
+    .why-section, .popular-section, .testimonial-section, .footer {
+      padding: 40px;
+    }
+
+    .cards, .product-grid, .testimonial-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .testimonial-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product, .card, .testimonial {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .product img, .card img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .footer {
+      background-color: white;
+      color: black;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 30%;
+      margin-bottom: 20px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-column img {
+      height: 20px;
+    }
+
+    .payment-logos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /* Uniform size for payment logos */
+    .payment-logos img {
+      height: 40px; /* Uniform size for all payment icons */
+      width: auto;
+      margin: 5px;
+    }
+
+    .footer-bottom {
+      background-color: #e0e0e0; /* Gray background */
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #444;
+      border-left: 1px solid #444;
+      border-right: 1px solid #444;
+      margin-top: 20px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      padding: 10px;
+      border: 1px solid #444;
+      display: inline-block;
+      background-color: white; /* White background behind the text */
+    }
+
+    /* Center the titles */
+    .why-section h1, .testimonial-section h2 {
+      text-align: center;
+    }
+
+    .testimonial-section .subheading {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .product-grid .product {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 300px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .product img {
+      max-height: 150px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .product p, .product span {
+      margin-top: 10px;
+    }
+
+    /* Styling for the Testimonial section */
+    .testimonial {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left; /* Align text to the left */
+      position: relative;
+      display: flex; /* Flexbox to align items */
+      gap: 15px; /* Space between thumbs-up and text */
+      align-items: center;
+    }
+
+    .testimonial h4 {
+      font-weight: bold;
+      margin-bottom: 10px; /* Space below the name */
+    }
+
+    .testimonial p {
+      margin-top: 10px;
+    }
+
+    .testimonial .thumb-icon {
+      font-size: 30px;
+      color: #ff9900; /* Color for the thumbs-up */
+    }
+
+    .testimonial .testimonial-date {
+      font-size: 12px;
+      color: #999;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo fiks.png" alt="Logo" class="logo" />
+  <nav>
+    <a href="#" class="nav-link">ALAT TULIS</a>
+    <a href="#" class="nav-link">ALAT OLAHRAGA</a>
+    <a href="#" class="nav-link">ELEKTRONIK</a>
+    <a href="#" class="nav-link">PAKAIAN DAN AKSESORIS</a>
+    <a href="#" class="nav-link">FURNITURE</a>
+  </nav>
+  <div class="right-section">
+    <div class="top-options">
+      <span>Status Pesanan</span>
+      <span>Bantuan</span>
+      <span>Masuk</span>
+    </div>
+    <div class="search-cart">
+      <input type="text" placeholder="Cari" class="search-bar" />
+      <span class="cart-icon">🛒</span>
+    </div>
+  </div>
+</header>
+
+<section class="main-section">
+  <div class="text-section">
+    <h1>
+      Pindah kos? Buku semester lalu numpuk?<br />
+      atau baju event kampus udah nggak kepakai?
+    </h1>
+    <p class="info-line">
+      di <span class="highlight-button">PrelovedMahasiswa.id</span>
+      kamu bisa jual barang bekas ke sesama mahasiswa tanpa ribet.
+    </p>
+  </div>
+  <div class="image-section">
+    <img src="shopping.jpeg" alt="Kipas" />
+  </div>
+</section>
+
+<section class="why-section">
+  <h1>Kenapa harus PrelovedMahasiswa.id?</h1>
+  <div class="cards">
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/money-bag.png" alt="Harga Terjangkau">
+      <h3>Harga Terjangkau</h3>
+      <p>Produk berkualitas dengan harga ramah mahasiswa.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/prize.png" alt="Produk Berkualitas">
+      <h3>Produk Berkualitas</h3>
+      <p>Semua barang telah diseleksi untuk memastikan kondisi baik.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/sustainability.png" alt="Ramah Lingkungan">
+      <h3>Ramah Lingkungan</h3>
+      <p>Mendukung keberlanjutan dengan membeli barang preloved.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/100/money-transfer.png" alt="Transaksi Aman">
+      <h3>Transaksi Aman</h3>
+      <p>Sistem pembayaran yang aman dan terpercaya.</p>
+    </div>
+  </div>
+</section>
+
+<section class="popular-section">
+  <h2>Barang Terpopuler</h2>
+  <div class="product-grid">
+    <div class="product"><img src="baju.jpg" alt="UNIQLO"><p>Rp 35.000</p><span>UNIQLO ( M )</span></div>
+    <div class="product"><img src="celana.jpg" alt="KULOT"><p>Rp 40.000</p><span>KULOT ( L )</span></div>
+    <div class="product"><img src="sepatu 1.jpg" alt="VENTELA"><p>Rp 125.000</p><span>VENTELA ( 39 )</span></div>
+    <div class="product"><img src="topi.jpg" alt="TOPI"><p>Rp 25.000</p><span>TOPI ( 9 )</span></div>
+    <div class="product"><img src="pulpen.jpg" alt="Pulpen"><p>Rp 35.000</p><span>PULPEN GEL isi 6</span></div>
+    <div class="product"><img src="kaos.jpeg" alt="UNIQLO T-Shirt"><p>Rp 35.000</p><span>UNIQLO ( L )</span></div>
+    <div class="product"><img src="kipas.jpeg" alt="MIYAKO"><p>Rp 50.000</p><span>MIYAKO</span></div>
+    <div class="product"><img src="binder.jpeg" alt="BINDER"><p>Rp 15.000</p><span>BINDER</span></div>
+    <div class="product"><img src="ransel.jpeg" alt="NIKE"><p>Rp 75.000</p><span>NIKE</span></div>
+    <div class="product"><img src="sepatu 2.jpeg" alt="SAMBA"><p>Rp 120.000</p><span>SAMBA ( 39 )</span></div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <h2>Pengalaman Nyata Pengguna</h2>
+  <h2>Menampilkan bukti nyata kepuasan pelanggan melalui testimoni.</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Dina, Mahasiswa Ekonomi</h4>
+      <p>Harga terjangkau, barangnya juga bagus! Sangat puas dengan kualitasnya.</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Rudi, Mahasiswa Teknik</h4>
+      <p>Sangat mudah untuk menemukan barang yang saya butuhkan. Proses transaksi juga cepat!</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Ari, Mahasiswa Informatika</h4>
+      <p>Beli laptop bekas di sini, dan ternyata masih sangat bagus. Hemat banget!</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Maya, Mahasiswa Kedokteran</h4>
+      <p>Produk-produk di prelovedmahasiswa.id benar-benar berkualitas, dan harga jauh lebih terjangkau.</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Arif, Mahasiswa DKV</h4>
+      <p>Saya selalu cari barang-barang bekas di sini karena kualitasnya terjamin. dan pengiriman cepat!</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+    <div class="testimonial">
+      <div class="thumb-icon">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+      <h4>Siti, Mahasiswa Psikologi</h4>
+      <p>Prelovedmahasiswa.id memberikan pengalaman belanja yang aman dan terpercaya. Barang sesuai dengan deskripsi!</p>
+      <span class="testimonial-date">8 hari yang lalu</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Kontak Kami</h4>
+      <ul>
+        <li><img src="email.png" alt="Email Icon"><span>prelovedmahasiswa.id@gmail.com</span></li>
+        <li><img src="instagram.png" alt="Instagram Icon"><span>prelovedmahasiswa.id</span></li>
+        <li><img src="fb.png" alt="Facebook Icon"><span>prelovedmahasiswa.id</span></li>
+        <li><img src="twitter.png" alt="Twitter Icon"><span>prelovedmahasiswa.id</span></li>
+        <li><img src="lokasi.png" alt="Location Icon"><span>Jl. Mahasiswa No. 123, Jakarta Selatan 12345</span></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Informasi</h4>
+      <ul>
+        <li>FAQ</li>
+        <li>Syarat & Ketentuan</li>
+        <li>Kebijakan Privasi</li>
+        <li>Pengiriman & Pengembalian</li>
+        <li>Partner & Sponsor</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Pembayaran</h4>
+      <div class="payment-logos">
+        <img src="visa.png" alt="Visa" />
+        <img src="bri.png" alt="BRI" />
+        <img src="bsi.png" alt="BSI" />
+        <img src="qris.png" alt="QRIS" />
+        <img src="master.png" alt="Mastercard" />
+        <img src="mandiri.png" alt="Mandiri" />
+        <img src="bni.png" alt="BNI" />
+        <img src="cod.png" alt="Cash on Delivery" />
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2025. All Rights Reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
